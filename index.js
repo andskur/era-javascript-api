@@ -52,9 +52,8 @@ module.exports = (function() {
         },
 
         // Make a GET API request
-        _public: function(command, parameters, callback){
+        _get: function(command, parameters, callback){
             let param = parameters;
-            param.command = command;
             let options = {
                 method: 'GET',
                 url: API_URL + command,
@@ -65,138 +64,131 @@ module.exports = (function() {
         },
 
         // Make a POST API request
-        _private: function(command, parameters, callback){
+        _post: function(command, parameters, callback){
             let param = parameters;
-            param.command = command;
             param.nonce = nonce(16);
             let options = {
                 method: 'POST',
-                url: API_URL,
-                form: param,
-                headers: this._getPrivateHeaders(param),
+                url: API_URL + command,
+                form: param
             };
-            if (options.headers) {
-                return this._request(options, callback);
-            } else {
-                let err = new Error('Error: API key and secret required');
-                return callback(err, null);
-            }
+            return this._request(options, callback);
         },
 
         // get last block
         lastBlock: function(callback) {
             let parameters = {};
-            return this._public('lastblock', parameters, callback);
+            return this._get('lastblock', parameters, callback);
         },
 
         // get last block hight
         lastHeight: function(callback) {
             let parameters = {};
-            return this._public('height', parameters, callback);
+            return this._get('height', parameters, callback);
         },
 
         // get block by signature
         block: function(signature, callback) {
             let parameters = {};
             var endpoint = 'block' + signature
-            return this._public(endpoint, parameters, callback);
+            return this._get(endpoint, parameters, callback);
         },
 
         // get block by height
         blockByHeight: function(height, callback) {
             let parameters = {};
             var endpoint = 'blockbyheight/' + height
-            return this._public(endpoint, parameters, callback);
+            return this._get(endpoint, parameters, callback);
         },
 
         // get child block
         childBlock: function(signature, callback) {
             let parameters = {};
             var endpoint = 'childblock/' + signature
-            return this._public(endpoint, parameters, callback);
+            return this._get(endpoint, parameters, callback);
         },
 
         // get blocks from height
         blocks: function(fromheight, limit, callback) {
             let parameters = {};
             var endpoint = 'blocksfromheight/' + fromheight + '/' + limit
-            return this._public(endpoint, parameters, callback);
+            return this._get(endpoint, parameters, callback);
         },
 
         // get blocks signatures from height
         blocksSignatures: function(fromheight, limit, callback) {
             let parameters = {};
             var endpoint = 'blockssignaturesfromheight/' + fromheight + '/' + limit
-            return this._public(endpoint, parameters, callback);
+            return this._get(endpoint, parameters, callback);
         },
 
         // get record by signature
         record: function(signature, callback) {
             let parameters = {};
             var endpoint = 'record/' + signature
-            return this._public(endpoint, parameters, callback);
+            return this._get(endpoint, parameters, callback);
         },
 
         // get record by Height and Sequence
         recordByHeight: function(height, sequence, callback) {
             let parameters = {};
             var endpoint = 'record/' + height + '-' + sequence
-            return this._public(endpoint, parameters, callback);
+            return this._get(endpoint, parameters, callback);
         },
 
         // Validate address
         addressIsValid: function(address, callback) {
             let parameters = {};
             var endpoint = 'addressvalidate/' + address
-            return this._public(endpoint, parameters, callback);
+            return this._get(endpoint, parameters, callback);
         },
 
         // Address Public Key
         addressPublicKey: function(address, callback) {
             let parameters = {};
             var endpoint = 'addresspublickey/' + address
-            return this._public(endpoint, parameters, callback);
+            return this._get(endpoint, parameters, callback);
         },
 
         // Address Last Reference
         addressLastReference: function(address, callback) {
             let parameters = {};
             var endpoint = 'addresslastreference/' + address
-            return this._public(endpoint, parameters, callback);
+            return this._get(endpoint, parameters, callback);
         },
 
         // Address Uncorfirmed Last Reference
         addressUnconfirmedLastreRerence: function(address, callback) {
             let parameters = {};
             var endpoint = 'addressunconfirmedlastreference/' + address
-            return this._public(endpoint, parameters, callback);
+            return this._get(endpoint, parameters, callback);
         },
 
         // Address Generating Balance
         addressGenBalance: function(address, callback) {
             let parameters = {};
             var endpoint = 'addressgeneratingbalance/' + address
-            return this._public(endpoint, parameters, callback);
+            return this._get(endpoint, parameters, callback);
         },
 
         // Address Assets
         addressAssets: function(address, callback) {
             let parameters = {};
             var endpoint = 'addressassets/' + address
-            return this._public(endpoint, parameters, callback);
+            return this._get(endpoint, parameters, callback);
         },
 
         // Address Asset Balance
         addressAssetBalance: function(address, asset, callback) {
             let parameters = {};
             var endpoint = 'addressassetbalance/' + address + '/' + asset
-            return this._public(endpoint, parameters, callback);
+            return this._get(endpoint, parameters, callback);
         },
 
         // Verify Signature for JSON
-        returnBalances: function(message, signature, publickey, callback){
+        verifySign: function(message, signature, publickey, callback){
             let parameters = {};
-            return this._private('verifysignature', parameters, callback);
+            return this._post('verifysignature', parameters, callback);
         },
     };
     return ERA;
