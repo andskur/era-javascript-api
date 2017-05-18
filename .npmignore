@@ -1,0 +1,7 @@
+.idea/
+node_modules/
+src/
+test.js
+.babelrc
+.eslintrc
+webpack.config.js

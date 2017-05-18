@@ -1,12 +1,11 @@
 {
   "name": "era-javascript-api",
-  "version": "0.0.3",
+  "version": "0.0.6",
   "description": "Era api wrapper for javascript",
-  "main": "lib/era-javascript-api.js",
+  "main": "lib/era-javascript-api.min.js",
   "scripts": {
     "build": "webpack --mode=build",
-    "dev": "webpack --progress --colors --watch --mode=dev",
-    "start": "npm run dev"
+    "dev": "webpack --progress --colors --watch --mode=dev"
   },
   "repository": {
     "type": "git",

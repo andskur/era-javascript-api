@@ -25,41 +25,45 @@ era.lastBlock(function(data, err) {
 
 ### lastHeight(callback)
 
+## Block
+
+### block.last(callback)
+
+### block.first(callback)
+
+### block.signature(signature, callback)
+
+### block.height(height, callback)
+
+### block.child(signature, callback)
+
 ## Blocks
 
-### lastBlock(callback)
+### blocks.from(fromheight, limit, callback)
 
-### block(signature, callback)
-
-### blockByHeight(height, callback)
-
-### childBlock(signature, callback)
-
-### blocks(fromheight, limit, callback)
-
-### blocksSignatures(fromheight, limit, callback)
+### blocks.signatures(fromheight, limit, callback)
 
 ## Records
 
-### record(signature, callback)
+### record.signature(signature, callback)
 
-### recordByHeight(height, sequence, callback)
+### record.height(height, sequence, callback)
 
 ## Addresses
 
-### addressIsValid(address, callback)
+### address.isValid(address, callback)
 
-### addressPublicKey(address, callback)
+### address.publicKey(address, callback)
 
-### addressLastReference(address, callback)
+### address.lastReference(address, callback)
 
-### addressUnconfirmedLastreRerence(address, callback)
+### address.unconfirmedLastRerence(address, callback)
 
-### addressGenBalance(address, callback)
+### address.genBalance(address, callback)
 
-### addressAssets(address, callback)
+### address.assets(address, callback)
 
-### addressAssetBalance(address, asset, callback)
+### address.assetBalance(address, asset, callback)
 
 ## Tools
 

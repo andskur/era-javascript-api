@@ -1,8 +1,8 @@
 import request from 'request'
 
-const version = require('../package.json').version
+const version = require('../../package.json').version
 const API_URL = 'http://datachains.world:9067/api/'
-const USER_AGENT = `${require('../package.json').name} ${version}`
+const USER_AGENT = `${require('../../package.json').name} ${version}`
 
 /**
  * Make Api request to ERA
