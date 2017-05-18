@@ -8,8 +8,12 @@
     "dev": "...",
     "test": "..."
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andskur/era-javascript-api.git"
+  },
   "author": "Andrey Skurlatov",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "request": "^2.81.0"
   }
