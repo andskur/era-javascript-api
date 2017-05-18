@@ -4,7 +4,7 @@
 
 # Install
 
-    npm install poloniex-api-node
+    npm install era-javascript-api
 
 # Usage
 
