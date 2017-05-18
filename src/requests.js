@@ -85,6 +85,6 @@ export function _get(command, parameters, callback) {
  * @param  {Function} callback
  * @return {Json}                 return Json response from public api request
  */
-export function _get(command, parameters, callback) {
+export function _post(command, parameters, callback) {
   return _public('POST', command, parameters, callback)
 }
