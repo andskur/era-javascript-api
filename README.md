@@ -17,7 +17,7 @@ var Era = require('era-javascript-api');
 era = new Era()
 	
 era.lastBlock(function(data, err) {
-	if (!err) console.log(data)
+  if (!err) console.log(data)
 })
 ```
 
