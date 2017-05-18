@@ -9,12 +9,6 @@ module.exports = (function() {
 
     function ERA(){}
 
-    // Currently, this fails with `Error: CERT_UNTRUSTED`
-    // ERA.STRICT_SSL can be set to `false` to avoid this. Use with caution.
-    // Will be removed in future, once this is resolved.
-    // ERA.STRICT_SSL = true;
-
-    // Customisable user agent string
     ERA.USER_AGENT = USER_AGENT;
 
     // Prototype
