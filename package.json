@@ -1,0 +1,16 @@
+{
+  "name": "era-javascript-api",
+  "version": "0.0.3",
+  "description": "Era api wrapper for javascript",
+  "main": "index.js",
+  "scripts": {
+    "build": "...",
+    "dev": "...",
+    "test": "..."
+  },
+  "author": "Andrey Skurlatov",
+  "license": "ISC",
+  "dependencies": {
+    "request": "^2.81.0"
+  }
+}
