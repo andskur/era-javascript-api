@@ -23,47 +23,47 @@ era.lastBlock(function(data, err) {
 
 # Methods
 
-	### lastHeight(callback)
+### lastHeight(callback)
 
-	## Blocks
+## Blocks
 
-		### lastBlock(callback)
+### lastBlock(callback)
 
-		### block(signature, callback)
+### block(signature, callback)
 
-		### blockByHeight(height, callback)
+### blockByHeight(height, callback)
 
-		### childBlock(signature, callback)
+### childBlock(signature, callback)
 
-		### blocks(fromheight, limit, callback)
+### blocks(fromheight, limit, callback)
 
-		### blocksSignatures(fromheight, limit, callback)
+### blocksSignatures(fromheight, limit, callback)
 
-	## Records
+## Records
 
-		### record(signature, callback)
+### record(signature, callback)
 
-		### recordByHeight(height, sequence, callback)
+### recordByHeight(height, sequence, callback)
 
-	## Addresses
+## Addresses
 
-		### addressIsValid(address, callback)
+### addressIsValid(address, callback)
 
-		### addressPublicKey(address, callback)
+### addressPublicKey(address, callback)
 
-		### addressLastReference(address, callback)
+### addressLastReference(address, callback)
 
-		### addressUnconfirmedLastreRerence(address, callback)
+### addressUnconfirmedLastreRerence(address, callback)
 
-		### addressGenBalance(address, callback)
+### addressGenBalance(address, callback)
 
-		### addressAssets(address, callback)
+### addressAssets(address, callback)
 
-		### addressAssetBalance(address, asset, callback)
+### addressAssetBalance(address, asset, callback)
 
-	## Tools
+## Tools
 
-		### verifySign(message, signature, publickey, callback)
+### verifySign(message, signature, publickey, callback)
 
 # License
 

@@ -22,7 +22,6 @@ function _request(options, callback) {
   options.timeout = 10000
 
   request(options, function(error, response, body) {
-    console.log(options)
 
     let err = error
 
@@ -56,7 +55,7 @@ function _request(options, callback) {
  * @param  {Function} callback
  * @return {Json}                 return Json response from Api server
  */
-export function _public(method, command, parameters, callback) {
+function _public(method, command, parameters, callback) {
   let param = parameters
 
   let options = {
