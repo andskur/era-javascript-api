@@ -64,3 +64,7 @@ era.lastBlock(function(data, err) {
 ## Tools
 
 ### verifySign(message, signature, publickey, callback)
+
+# License
+
+[MIT](LICENSE)
