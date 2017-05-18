@@ -10,7 +10,7 @@
 
 ### Era([options])
 
-Example 1:
+Example:
 
 ```js
 var Era = require('era-javascript-api');

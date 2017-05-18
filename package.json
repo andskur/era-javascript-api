@@ -1,6 +1,6 @@
 {
   "name": "era-javascript-api",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Era api wrapper for javascript",
   "main": "index.js",
   "scripts": {
