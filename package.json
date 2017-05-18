@@ -8,6 +8,10 @@
     "dev": "webpack --progress --colors --watch --mode=dev",
     "start": "npm run dev"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andskur/era-javascript-api.git"
+  },
   "author": "Andrey Skurlatov",
   "license": "MIT",
   "dependencies": {
