@@ -14,11 +14,10 @@ Example:
 
 ```js
 var Era = require('era-javascript-api');
-era = new Era()
 	
-era.lastBlock(function(data, err) {
-  if (!err) console.log(data)
-})
+Era.block.last(function(data) {
+  console.log(data)
+});
 ```
 
 # Methods

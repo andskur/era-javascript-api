@@ -1,8 +1,9 @@
-import request from 'request'
+// import request from 'request'
+import axios from 'axios'
 
-const version = require('../../package.json').version
+// const version = require('../../package.json').version
 const API_URL = 'http://datachains.world:9067/api/'
-const USER_AGENT = `${require('../../package.json').name} ${version}`
+// const USER_AGENT = `${require('../../package.json').name} ${version}`
 
 /**
  * Make Api request to ERA
@@ -10,80 +11,48 @@ const USER_AGENT = `${require('../../package.json').name} ${version}`
  * @param  {Function} callback
  * @return {Json}               return Json response from Api server
  */
-function _request(options, callback) {
-  if (!('headers' in options)) {
-    options.headers = {}
-  }
-
-  options.baseUrl = API_URL
-  options.json = true
-  options.headers['User-Agent'] = USER_AGENT
-  options.headers['Access-Control-Allow-Origin'] = '*'
-  options.timeout = 10000
-
-  request(options, function(error, response, body) {
-
-    let err = error
-
-    if (!err && response.statusCode !== 200) {
-      let errMsg = `ERA error ${response.statusCode}: ${response.statusMessage}`
-
-      if (typeof response.body === 'object' && response.body.hasOwnProperty('error')) {
-        errMsg = `${errMsg}. ${response.body.error}`
-      }
-      err = new Error(errMsg)
-    }
-
-    if (!err && (typeof response.body === 'undefined' || response.body === null)) {
-      err = new Error('ERA error: Empty response')
-    }
-
-    if (!err && body.error) {
-      err = new Error(body.error)
-    }
-
-    callback(body, error)
-  })
-  return this
-}
-
-/**
- * Make public Api request
- * @param  {String}   method      Request method
- * @param  {String}   command     Api command (endpoint)
- * @param  {Array}    parameters  GET request query parameters
- * @param  {Function} callback
- * @return {Json}                 return Json response from Api server
- */
-function _public(method, command, parameters, callback) {
-  let param = parameters
-
-  let options = {
+function _request(method, endpoint, parameters, callback) {
+  var opt = {
     method: method,
-    uri: command,
-    qs: param,
+    baseURL: API_URL,
+    url: endpoint,
+    crossDomain: true,
+    headers: {
+      // 'User-Agent': USER_AGENT,
+    },
+    timeout: 10000,
+    params: parameters,
+    responseType: 'json',
   }
-  return _request(options, callback)
+
+  axios(opt)
+  .then(response => {
+    callback(response.data)
+  })
+  .catch(error => {
+    var err = error.response
+    callback(err)
+  })
 }
 
 /**
  * Make GET Api request
- * @param  {String}   command     Api command (endpoint)
+ * @param  {String}   endpoint     Api endpoint (endpoint)
  * @param  {Array}    parameters  GET request query parameters
  * @param  {Function} callback
  * @return {Json}                 return Json response from public api request
  */
-export function _get(command, parameters, callback) {
-  return _public('GET', command, parameters, callback)
+export function _get(endpoint, parameters, callback) {
+  return _request('GET', endpoint, parameters, callback)
 }
 
 /**
  * Make POST Api request
- * @param  {String}   command     Api command (endpoint)
+ * @param  {String}   endpoint     Api endpoint (endpoint)
  * @param  {Array}    parameters  GET request query parameters
  * @param  {Function} callback
  * @return {Json}                 return Json response from public api request
  */
-export function _post(command, parameters, callback) {
-  return _public('POST', command, parameters, callback)
+export function _post(endpoint, parameters, callback) {
+  return _request('POST', endpoint, parameters, callback)
 }

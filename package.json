@@ -14,7 +14,7 @@
   "author": "Andrey Skurlatov",
   "license": "MIT",
   "dependencies": {
-    "request": "^2.81.0"
+    "axios": "^0.16.1"
   },
   "devDependencies": {
     "babel": "6.3.13",
