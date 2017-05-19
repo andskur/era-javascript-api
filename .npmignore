@@ -5,3 +5,4 @@ test.js
 .babelrc
 .eslintrc
 webpack.config.js
+release.sh
