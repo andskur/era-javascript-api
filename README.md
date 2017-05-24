@@ -1,4 +1,4 @@
-# era-javascript-api [![NPM version](https://badge.fury.io/js/github-changes.png)](http://badge.fury.io/js/github-changes)
+# era-javascript-api [![NPM version](https://badge.fury.io/js/era-javascript-api.svg)](https://badge.fury.io/js/era-javascript-api)
 
 **era-javascript-api** is a simple node.js wrapper for ERA REST API.
 
